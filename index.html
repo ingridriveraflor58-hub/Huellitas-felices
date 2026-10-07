@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huellitas Felices</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#fff;
+color:#444;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:white;
+padding:15px 8%;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+z-index:1000;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:2rem;
+font-weight:bold;
+color:#ff7eb3;
+}
+
+.menu{
+display:flex;
+list-style:none;
+gap:20px;
+}
+
+.menu a{
+text-decoration:none;
+color:#6ea8fe;
+font-weight:bold;
+}
+
+.cart{
+background:#ff7eb3;
+padding:10px 20px;
+border-radius:30px;
+color:white;
+font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)),
+url('https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+background:rgba(255,255,255,0.8);
+padding:50px;
+border-radius:30px;
+max-width:700px;
+}
+
+.hero h1{
+font-size:4rem;
+color:#ff7eb3;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-bottom:30px;
+}
+
+.btn{
+background:#6ea8fe;
+padding:15px 35px;
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-weight:bold;
+display:inline-block;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#ff7eb3;
+}
+
+/* SECCIONES */
+
+section{
+padding:100px 8%;
+}
+
+.title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.title h2{
+font-size:2.8rem;
+color:#ff7eb3;
+}
+
+/* CATEGORIAS */
+
+.categories{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:50px;
+}
+
+.category-btn{
+padding:15px 25px;
+border:none;
+background:#dbe9ff;
+border-radius:30px;
+cursor:pointer;
+font-size:1rem;
+font-weight:bold;
+transition:0.3s;
+}
+
+.category-btn:hover, .category-btn.active{
+background:#ff7eb3;
+color:white;
+}
+
+/* PRODUCTOS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.card-content{
+padding:25px;
+text-align:center;
+}
+
+.card-content h3{
+color:#6ea8fe;
+margin-bottom:10px;
+}
+
+.price{
+font-size:1.5rem;
+font-weight:bold;
+color:#ff7eb3;
+margin:15px 0;
+}
+
+.buy-btn{
+background:#ff7eb3;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.buy-btn:hover{
+background:#6ea8fe;
+}
+
+/* CARRITO VISUAL */
+
+.cart-box{
+position:fixed;
+right:20px;
+bottom:20px;
+background:white;
+padding:20px;
+border-radius:20px;
+width:300px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+max-height:400px;
+overflow:auto;
+z-index:999;
+}
+
+.cart-box h3{
+color:#ff7eb3;
+margin-bottom:15px;
+}
+
+.cart-item{
+margin-bottom:10px;
+padding-bottom:10px;
+border-bottom:1px solid #eee;
+}
+
+.total{
+margin-top:15px;
+font-weight:bold;
+color:#6ea8fe;
+}
+
+/* CONTACTO */
+
+.contact{
+background:linear-gradient(135deg,#ffd6e8,#dbe9ff);
+padding:60px;
+border-radius:30px;
+text-align:center;
+}
+
+.contact h2{
+color:#6ea8fe;
+margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer{
+background:#6ea8fe;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:50px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+.hero h1{
+font-size:2.5rem;
+}
+
+.cart-box{
+width:90%;
+right:5%;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">🐾 Huellitas Felices</div>
+<ul class="menu">
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#productos">Productos</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+<div class="cart">
+🛒 <span id="cart-count">0</span>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+<div class="hero-content">
+<h1>Huellitas Felices</h1>
+<p>Todo para consentir a tus mascotas favoritas 🐶🐱</p>
+<a href="#productos" class="btn">Ver Productos</a>
+</div>
+</section>
+
+<!-- PRODUCTOS -->
+
+<section id="productos">
+<div class="title">
+<h2>Nuestros Productos</h2>
+</div>
+
+<!-- CATEGORIAS -->
+
+<div class="categories">
+<button class="category-btn active" onclick="filterProducts('all')">Todos</button>
+<button class="category-btn" onclick="filterProducts('comida')">🍖 Comida</button>
+<button class="category-btn" onclick="filterProducts('juguetes')">🧸 Juguetes</button>
+<button class="category-btn" onclick="filterProducts('ropa')">👕 Ropita</button>
+<button class="category-btn" onclick="filterProducts('camas')">🛏️ Camas</button>
+</div>
+
+<!-- LISTA DE PRODUCTOS ORGANIZADOS -->
+
+<div class="products">
+
+<!-- COMIDA -->
+
+<div class="card comida">
+<img src="https://images.pexels.com/photos/4587991/pexels-photo-4587991.jpeg" alt="Comida Premium Perro">
+<div class="card-content">
+<h3>Comida Premium Perro</h3>
+<p>Croquetas nutritivas y balanceadas para perros adultas.</p>
+<div class="price">$45.000</div>
+<button class="buy-btn" onclick="addToCart('Comida Premium Perro',45000)">🛒 Agregar</button>
+</div>
+</div>
+
+<div class="card comida">
+<img src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" alt="Comida Gatuna Gourmet">
+<div class="card-content">
+<h3>Comida Gatuna Gourmet</h3>
+<p>Alimento completo para salud y brillo del pelaje en gatos.</p>
+<div class="price">$40.000</div>
+<button class="buy-btn" onclick="addToCart('Comida Gatuna Gourmet',40000)">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- JUGUETES -->
+
+<div class="card juguetes">
+<img src="https://images.pexels.com/photos/5731866/pexels-photo-5731866.jpeg" alt="Pelota Divertida">
+<div class="card-content">
+<h3>Pelota Divertida</h3>
+<p>Resistente y duradera, ideal para jugar al aire libre.</p>
+<div class="price">$18.000</div>
+<button class="buy-btn" onclick="addToCart('Pelota Divertida',18000)">🛒 Agregar</button>
+</div>
+</div>
+
+<div class="card juguetes">
+<img src="https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg" alt="Huesito de Goma">
+<div class="card-content">
+<h3>Huesito de Goma</h3>
+<p>Perfecto para la salud dental, morder y entretenerse.</p>
+<div class="price">$22.000</div>
+<button class="buy-btn" onclick="addToCart('Huesito de Goma',22000)">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- ROPA -->
+
+<div class="card ropa">
+<img src="https://images.pexels.com/photos/6568501/pexels-photo-6568501.jpeg" alt="Ropita Rosa">
+<div class="card-content">
+<h3>Saco Algodón Rosa</h3>
+<p>Diseño cómodo y calientito para clima frío.</p>
+<div class="price">$35.000</div>
+<button class="buy-btn" onclick="addToCart('Saco Algodón Rosa',35000)">🛒 Agregar</button>
+</div>
+</div>
+
+<div class="card ropa">
+<img src="https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg" alt="Chaqueta Impermeable">
+<div class="card-content">
+<h3>Chaqueta Impermeable</h3>
+<p>Protege a tu mascota de la lluvia durante los paseos.</p>
+<div class="price">$48.000</div>
+<button class="buy-btn" onclick="addToCart('Chaqueta Impermeable',48000)">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- CAMAS -->
+
+<div class="card camas">
+<img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg" alt="Cama Deluxe">
+<div class="card-content">
+<h3>Cama Deluxe Acolchada</h3>
+<p>Máximo confort y suavidad para un descanso profundo.</p>
+<div class="price">$80.000</div>
+<button class="buy-btn" onclick="addToCart('Cama Deluxe Acolchada',80000)">🛒 Agregar</button>
+</div>
+</div>
+
+<div class="card camas">
+<img src="https://images.pexels.com/photos/731022/pexels-photo-731022.jpeg" alt="Cojín Cueva para Gatos">
+<div class="card-content">
+<h3>Cueva Térmica Mascotas</h3>
+<p>Espacio privado y abrigado para gatitos o cachorros.</p>
+<div class="price">$65.000</div>
+<button class="buy-btn" onclick="addToCart('Cueva Térmica Mascotas',65000)">🛒 Agregar</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contacto">
+<div class="contact">
+<h2>Contáctanos</h2>
+<p>📍 Calle Principal #123</p>
+<p>📞 +57 300 000 0000</p>
+<p>📧 contacto@huellitasfelices.com</p>
+</div>
+</section>
+
+<!-- CARRITO VISUAL -->
+
+<div class="cart-box">
+<h3>🛒 Carrito</h3>
+<div id="cart-items"></div>
+<div class="total">Total: $<span id="cart-total">0</span></div>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+<p>© 2026 Huellitas Felices</p>
+</footer>
+
+<!-- JAVASCRIPT DE FILTRADO Y CARRITO -->
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToCart(product, price){
+cart.push({product, price});
+total += price;
+document.getElementById("cart-count").innerText = cart.length;
+document.getElementById("cart-total").innerText = total.toLocaleString();
+
+const cartItems = document.getElementById("cart-items");
+const item = document.createElement("div");
+item.classList.add("cart-item");
+item.innerHTML = `${product} - $${price.toLocaleString()}`;
+cartItems.appendChild(item);
+}
+
+function filterProducts(category){
+const cards = document.querySelectorAll(".card");
+const buttons = document.querySelectorAll(".category-btn");
+
+buttons.forEach(btn => btn.classList.remove("active"));
+event.target.classList.add("active");
+
+cards.forEach(card => {
+if(category === "all"){
+card.style.display = "block";
+}else{
+if(card.classList.contains(category)){
+card.style.display = "block";
+}else{
+card.style.display = "none";
+}
+}
+});
+}
+</script>
+
+</body>
+</html>
