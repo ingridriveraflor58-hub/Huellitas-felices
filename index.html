@@ -1,1613 +1,731 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 
 <html lang="es">
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Huellitas Felices 🐾</title>
+<title>Huellitas Felices</title>
 
-  <style>
+<style>
 
-    * {
+*{
 
-      margin: 0;
+  box-sizing:border-box;
 
-      padding: 0;
+  margin:0;
 
-      box-sizing: border-box;
+  padding:0;
 
-      font-family: Arial, sans-serif;
+  font-family:Arial,sans-serif;
 
-    }
+}
 
-    body {
+body{
 
-      background: #fff8fc;
+  background:#fff7fb;
 
-      color: #333;
+  color:#333;
 
-    }
+}
 
-    header {
+header{
 
-      position: fixed;
+  background:#f48fb1;
 
-      top: 0;
+  color:white;
 
-      left: 0;
+  padding:18px 25px;
 
-      width: 100%;
+  display:flex;
 
-      background: white;
+  justify-content:space-between;
 
-      padding: 15px 7%;
+  align-items:center;
 
-      display: flex;
+  position:sticky;
 
-      align-items: center;
+  top:0;
 
-      justify-content: space-between;
+  z-index:10;
 
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
 
-      z-index: 1000;
+.logo{
 
-    }
+  font-size:24px;
 
-    .logo {
+  font-weight:bold;
 
-      font-size: 24px;
+}
 
-      font-weight: bold;
+nav a{
 
-      color: #e85d9e;
+  color:white;
 
-    }
+  text-decoration:none;
 
-    nav a {
+  margin:0 8px;
 
-      text-decoration: none;
+  font-weight:bold;
 
-      color: #444;
+}
 
-      margin: 0 12px;
+.cart{
 
-      font-weight: bold;
+  background:white;
 
-    }
+  color:#e85d91;
 
-    nav a:hover {
+  padding:8px 12px;
 
-      color: #e85d9e;
+  border-radius:20px;
 
-    }
+  font-weight:bold;
 
-    .cart-btn {
+}
 
-      background: #e85d9e;
+.hero{
 
-      color: white;
+  text-align:center;
 
-      border: none;
+  padding:45px 20px;
 
-      padding: 10px 16px;
+  background:#ffd6e7;
 
-      border-radius: 20px;
+}
 
-      cursor: pointer;
+.hero h1{
 
-      font-weight: bold;
+  color:#d94f83;
 
-    }
+  font-size:38px;
 
-    .hero {
+  margin-bottom:10px;
 
-      margin-top: 70px;
+}
 
-      min-height: 400px;
+.hero p{
 
-      padding: 70px 8%;
+  font-size:18px;
 
-      display: flex;
+}
 
-      align-items: center;
+.container{
 
-      justify-content: space-between;
+  max-width:1100px;
 
-      gap: 30px;
+  margin:auto;
 
-      background: linear-gradient(135deg, #ffd9eb, #dceeff);
+  padding:30px 20px;
 
-    }
+}
 
-    .hero-text {
+h2{
 
-      max-width: 600px;
+  text-align:center;
 
-    }
+  color:#d94f83;
 
-    .hero h1 {
+  margin-bottom:25px;
 
-      font-size: 48px;
+}
 
-      color: #e85d9e;
+.filters{
 
-      margin-bottom: 15px;
+  display:flex;
 
-    }
+  gap:10px;
 
-    .hero p {
+  justify-content:center;
 
-      font-size: 19px;
+  flex-wrap:wrap;
 
-      margin-bottom: 25px;
+  margin-bottom:30px;
 
-      line-height: 1.5;
+}
 
-    }
+input,select{
 
-    .hero button {
+  padding:12px;
 
-      background: #e85d9e;
+  border:2px solid #f3b5cb;
 
-      border: none;
+  border-radius:10px;
 
-      color: white;
+  outline:none;
 
-      padding: 14px 24px;
+}
 
-      border-radius: 25px;
+.products{
 
-      font-size: 16px;
+  display:grid;
 
-      cursor: pointer;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
-      font-weight: bold;
+  gap:22px;
 
-    }
+}
 
-    .hero-dog {
+.card{
 
-      font-size: 130px;
+  background:white;
 
-    }
+  border-radius:18px;
 
-    section {
+  overflow:hidden;
 
-      padding: 60px 7%;
+  box-shadow:0 3px 12px rgba(0,0,0,.12);
 
-    }
+  text-align:center;
 
-    .section-title {
+  padding-bottom:18px;
 
-      text-align: center;
+}
 
-      margin-bottom: 30px;
+.product-image{
 
-    }
+  width:100%;
 
-    .section-title h2 {
+  height:190px;
 
-      font-size: 32px;
+  background:#ffe5ef;
 
-      color: #e85d9e;
+  display:flex;
 
-      margin-bottom: 8px;
+  align-items:center;
 
-    }
+  justify-content:center;
 
-    .filters {
+}
 
-      display: flex;
+.product-image svg{
 
-      justify-content: center;
+  width:150px;
 
-      gap: 12px;
+  height:150px;
 
-      flex-wrap: wrap;
+}
 
-      margin-bottom: 30px;
+.card h3{
 
-    }
+  color:#d94f83;
 
-    .filters input,
+  margin:15px 8px 8px;
 
-    .filters select {
+}
 
-      padding: 12px;
+.card p{
 
-      border: 1px solid #ddd;
+  color:#666;
 
-      border-radius: 10px;
+  min-height:40px;
 
-      outline: none;
+  padding:0 10px;
 
-      background: white;
+}
 
-    }
+.price{
 
-    .products {
+  display:block;
 
-      display: grid;
+  color:#222;
 
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  font-size:20px;
 
-      gap: 25px;
+  font-weight:bold;
 
-    }
+  margin:12px;
 
-    .product {
+}
 
-      background: white;
+button{
 
-      border-radius: 18px;
+  border:none;
 
-      overflow: hidden;
+  background:#e85d91;
 
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  color:white;
 
-      transition: 0.3s;
+  padding:11px 18px;
 
-    }
+  border-radius:20px;
 
-    .product:hover {
+  cursor:pointer;
 
-      transform: translateY(-5px);
+  font-weight:bold;
 
-    }
+}
 
-    .product img {
+button:hover{
 
-      width: 100%;
+  background:#d94f83;
 
-      height: 220px;
+}
 
-      object-fit: cover;
+.contacto{
 
-      display: block;
+  margin-top:40px;
 
-    }
+  background:#ffe5ef;
 
-    .product-info {
+  padding:30px;
 
-      padding: 18px;
+  border-radius:20px;
 
-    }
+  text-align:center;
 
-    .product-info h3 {
+}
 
-      margin-bottom: 8px;
+.contacto input{
 
-      color: #444;
+  width:90%;
 
-    }
+  max-width:500px;
 
-    .product-info p {
+  margin:6px;
 
-      color: #777;
+}
 
-      font-size: 14px;
+footer{
 
-      margin-bottom: 12px;
+  margin-top:40px;
 
-      min-height: 40px;
+  background:#d94f83;
 
-    }
+  color:white;
 
-    .price {
+  text-align:center;
 
-      color: #e85d9e;
+  padding:25px;
 
-      font-size: 20px;
+}
 
-      font-weight: bold;
+#mensaje{
 
-      margin-bottom: 12px;
+  position:fixed;
 
-    }
+  bottom:20px;
 
-    .add-btn {
+  right:20px;
 
-      width: 100%;
+  background:#d94f83;
 
-      border: none;
+  color:white;
 
-      background: #e85d9e;
+  padding:12px 18px;
 
-      color: white;
+  border-radius:20px;
 
-      padding: 11px;
+  display:none;
 
-      border-radius: 10px;
+  z-index:20;
 
-      cursor: pointer;
+}
 
-      font-weight: bold;
-
-    }
-
-    .add-btn:hover {
-
-      background: #d9478b;
-
-    }
-
-    .contact {
-
-      background: #f7e5ef;
-
-      border-radius: 20px;
-
-      max-width: 800px;
-
-      margin: 0 auto;
-
-    }
-
-    .contact form {
-
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 15px;
-
-    }
-
-    .contact input,
-
-    .contact textarea {
-
-      padding: 13px;
-
-      border: none;
-
-      border-radius: 10px;
-
-      outline: none;
-
-      resize: vertical;
-
-    }
-
-    .contact button {
-
-      background: #e85d9e;
-
-      color: white;
-
-      border: none;
-
-      padding: 13px;
-
-      border-radius: 10px;
-
-      cursor: pointer;
-
-      font-weight: bold;
-
-    }
-
-    footer {
-
-      background: #333;
-
-      color: white;
-
-      text-align: center;
-
-      padding: 25px;
-
-      margin-top: 40px;
-
-    }
-
-    .cart {
-
-      position: fixed;
-
-      right: -420px;
-
-      top: 0;
-
-      width: 380px;
-
-      max-width: 90%;
-
-      height: 100vh;
-
-      background: white;
-
-      z-index: 2000;
-
-      box-shadow: -5px 0 20px rgba(0,0,0,0.15);
-
-      transition: 0.3s;
-
-      padding: 25px;
-
-      overflow-y: auto;
-
-    }
-
-    .cart.active {
-
-      right: 0;
-
-    }
-
-    .cart-header {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      margin-bottom: 20px;
-
-    }
-
-    .cart-header h2 {
-
-      color: #e85d9e;
-
-    }
-
-    .close-cart {
-
-      border: none;
-
-      background: #eee;
-
-      width: 35px;
-
-      height: 35px;
-
-      border-radius: 50%;
-
-      cursor: pointer;
-
-      font-size: 18px;
-
-    }
-
-    .cart-item {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      padding: 12px 0;
-
-      border-bottom: 1px solid #eee;
-
-    }
-
-    .cart-item img {
-
-      width: 60px;
-
-      height: 60px;
-
-      object-fit: cover;
-
-      border-radius: 10px;
-
-    }
-
-    .cart-item-info {
-
-      flex: 1;
-
-    }
-
-    .cart-item-info h4 {
-
-      font-size: 14px;
-
-      margin-bottom: 5px;
-
-    }
-
-    .cart-item-info span {
-
-      color: #e85d9e;
-
-      font-weight: bold;
-
-      font-size: 14px;
-
-    }
-
-    .quantity {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 6px;
-
-      margin-top: 5px;
-
-    }
-
-    .quantity button {
-
-      border: none;
-
-      background: #f3d4e3;
-
-      width: 24px;
-
-      height: 24px;
-
-      border-radius: 5px;
-
-      cursor: pointer;
-
-    }
-
-    .delete-btn {
-
-      border: none;
-
-      background: transparent;
-
-      color: #e85d9e;
-
-      cursor: pointer;
-
-      font-size: 16px;
-
-    }
-
-    .cart-total {
-
-      margin-top: 25px;
-
-      padding-top: 15px;
-
-      border-top: 2px solid #eee;
-
-      font-size: 21px;
-
-      font-weight: bold;
-
-      display: flex;
-
-      justify-content: space-between;
-
-    }
-
-    .checkout {
-
-      width: 100%;
-
-      margin-top: 20px;
-
-      padding: 13px;
-
-      border: none;
-
-      background: #e85d9e;
-
-      color: white;
-
-      border-radius: 10px;
-
-      cursor: pointer;
-
-      font-weight: bold;
-
-    }
-
-    .empty {
-
-      text-align: center;
-
-      color: #888;
-
-      padding: 30px 0;
-
-    }
-
-    .modal {
-
-      display: none;
-
-      position: fixed;
-
-      inset: 0;
-
-      background: rgba(0,0,0,0.55);
-
-      z-index: 3000;
-
-      align-items: center;
-
-      justify-content: center;
-
-      padding: 20px;
-
-    }
-
-    .modal.active {
-
-      display: flex;
-
-    }
-
-    .modal-content {
-
-      background: white;
-
-      width: 100%;
-
-      max-width: 500px;
-
-      border-radius: 20px;
-
-      padding: 25px;
-
-      max-height: 90vh;
-
-      overflow-y: auto;
-
-    }
-
-    .modal-content h2 {
-
-      color: #e85d9e;
-
-      margin-bottom: 10px;
-
-    }
-
-    .modal-content p {
-
-      margin-bottom: 20px;
-
-      color: #666;
-
-    }
-
-    .modal-content input,
-
-    .modal-content select {
-
-      width: 100%;
-
-      padding: 12px;
-
-      margin-bottom: 12px;
-
-      border: 1px solid #ddd;
-
-      border-radius: 10px;
-
-      outline: none;
-
-    }
-
-    .modal-buttons {
-
-      display: flex;
-
-      gap: 10px;
-
-      margin-top: 10px;
-
-    }
-
-    .modal-buttons button {
-
-      flex: 1;
-
-      padding: 12px;
-
-      border: none;
-
-      border-radius: 10px;
-
-      cursor: pointer;
-
-      font-weight: bold;
-
-    }
-
-    .confirm {
-
-      background: #e85d9e;
-
-      color: white;
-
-    }
-
-    .cancel {
-
-      background: #eee;
-
-      color: #333;
-
-    }
-
-    @media (max-width: 700px) {
-
-      header {
-
-        padding: 12px 4%;
-
-      }
-
-      nav {
-
-        display: none;
-
-      }
-
-      .hero {
-
-        text-align: center;
-
-        justify-content: center;
-
-        padding: 50px 6%;
-
-      }
-
-      .hero h1 {
-
-        font-size: 36px;
-
-      }
-
-      .hero-dog {
-
-        display: none;
-
-      }
-
-      .cart {
-
-        width: 95%;
-
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
 
 <body>
 
-  <header>
+<header>
 
-    <div class="logo">🐾 Huellitas Felices</div>
+  <div class="logo">🐾 Huellitas Felices</div>
 
-    <nav>
+  <nav>
 
-      <a href="#inicio">Inicio</a>
+    <a href="#inicio">Inicio</a>
 
-      <a href="#productos">Productos</a>
+    <a href="#productos">Productos</a>
 
-      <a href="#contacto">Contacto</a>
+    <a href="#contacto">Contacto</a>
 
-    </nav>
+  </nav>
 
-    <button class="cart-btn" onclick="toggleCart()">
+  <div class="cart">
 
-      🛒 Carrito (<span id="cart-count">0</span>)
-
-    </button>
-
-  </header>
-
-  <section class="hero" id="inicio">
-
-    <div class="hero-text">
-
-      <h1>¡Todo para tu Peludito! 🐶</h1>
-
-      <p>
-
-        Encuentra comida, juguetes, ropa, camas y accesorios
-
-        para consentir a tu mascota. 💗
-
-      </p>
-
-      <button onclick="document.getElementById('productos').scrollIntoView()">
-
-        Ver productos
-
-      </button>
-
-    </div>
-
-    <div class="hero-dog">
-
-      🐶🐾
-
-    </div>
-
-  </section>
-
-  <section id="productos">
-
-    <div class="section-title">
-
-      <h2>🛍️ Nuestros productos</h2>
-
-      <p>Elige lo que más le guste a tu mascota</p>
-
-    </div>
-
-    <div class="filters">
-
-      <input
-
-        type="text"
-
-        id="search"
-
-        placeholder="🔎 Buscar producto..."
-
-        oninput="renderProducts()"
-
-      >
-
-      <select id="category" onchange="renderProducts()">
-
-        <option value="todos">Todas las categorías</option>
-
-        <option value="comida">Comida</option>
-
-        <option value="juguetes">Juguetes</option>
-
-        <option value="ropa">Ropa</option>
-
-        <option value="camas">Camas</option>
-
-        <option value="accesorios">Accesorios</option>
-
-      </select>
-
-    </div>
-
-    <div class="products" id="product-list"></div>
-
-  </section>
-
-  <section id="contacto">
-
-    <div class="contact">
-
-      <div class="section-title">
-
-        <h2>📩 Contáctanos</h2>
-
-        <p>¿Tienes alguna pregunta? Escríbenos.</p>
-
-      </div>
-
-      <form onsubmit="sendMessage(event)">
-
-        <input
-
-          type="text"
-
-          id="contact-name"
-
-          placeholder="Tu nombre"
-
-          required
-
-        >
-
-        <input
-
-          type="email"
-
-          id="contact-email"
-
-          placeholder="Tu correo"
-
-          required
-
-        >
-
-        <textarea
-
-          id="contact-message"
-
-          rows="5"
-
-          placeholder="Escribe tu mensaje..."
-
-          required
-
-        ></textarea>
-
-        <button type="submit">
-
-          Enviar mensaje
-
-        </button>
-
-      </form>
-
-    </div>
-
-  </section>
-
-  <footer>
-
-    <p>🐾 Huellitas Felices</p>
-
-    <p>Hecho con amor para nuestros peluditos 💗</p>
-
-  </footer>
-
-  <div class="cart" id="cart">
-
-    <div class="cart-header">
-
-      <h2>🛒 Mi carrito</h2>
-
-      <button class="close-cart" onclick="toggleCart()">
-
-        ✕
-
-      </button>
-
-    </div>
-
-    <div id="cart-items"></div>
-
-    <div class="cart-total">
-
-      <span>Total:</span>
-
-      <span id="cart-total">$0</span>
-
-    </div>
-
-    <button class="checkout" onclick="openCheckout()">
-
-      Comprar
-
-    </button>
+    🛒 Carrito: <span id="contador">0</span>
 
   </div>
 
-  <div class="modal" id="checkout-modal">
+</header>
 
-    <div class="modal-content">
+<section class="hero" id="inicio">
 
-      <h2>🐾 Finalizar compra</h2>
+  <h1>¡Todo para tu Peludito! 🐶</h1>
 
-      <p>
+  <p>Productos para consentir y cuidar a nuestros mejores amigos.</p>
 
-        Esta es una simulación de compra para Huellitas Felices.
+</section>
 
-      </p>
+<main class="container" id="productos">
 
-      <input
+  <h2>🐾 Nuestros productos 🐾</h2>
 
-        type="text"
+  <div class="filters">
 
-        id="customer-name"
+    <input
 
-        placeholder="Nombre completo"
+      type="text"
 
-      >
+      id="buscar"
 
-      <input
+      placeholder="Buscar producto..."
 
-        type="text"
+      oninput="mostrarProductos()"
 
-        id="customer-address"
+    >
 
-        placeholder="Dirección"
+    <select id="categoria" onchange="mostrarProductos()">
 
-      >
+      <option value="todos">Todos</option>
 
-      <input
+      <option value="comida">Comida</option>
 
-        type="tel"
+      <option value="juguetes">Juguetes</option>
 
-        id="customer-phone"
+      <option value="ropa">Ropa</option>
 
-        placeholder="Número de teléfono"
+      <option value="camas">Camas</option>
 
-      >
+      <option value="accesorios">Accesorios</option>
 
-      <select id="payment-method">
-
-        <option value="">Selecciona el medio de pago</option>
-
-        <option>Nequi</option>
-
-        <option>Daviplata</option>
-
-        <option>Tarjeta</option>
-
-        <option>Pago contra entrega</option>
-
-      </select>
-
-      <div class="modal-buttons">
-
-        <button
-
-          class="cancel"
-
-          onclick="closeCheckout()"
-
-        >
-
-          Cancelar
-
-        </button>
-
-        <button
-
-          class="confirm"
-
-          onclick="finishPurchase()"
-
-        >
-
-          Confirmar compra
-
-        </button>
-
-      </div>
-
-    </div>
+    </select>
 
   </div>
 
-  <script>
+  <div class="products" id="listaProductos"></div>
 
-    const products = [
+  <section class="contacto" id="contacto">
 
-      {
+    <h2>💗 Contáctanos</h2>
 
-        id: 1,
+    <p>¿Tienes alguna pregunta? Escríbenos.</p>
 
-        name: "Concentrado para Perros",
+    <br>
 
-        category: "comida",
+    <input type="text" id="nombre" placeholder="Tu nombre">
 
-        price: 45000,
+    <br>
 
-        description: "Alimento para consentir y alimentar a tu peludito.",
+    <input type="email" id="correo" placeholder="Tu correo">
 
-        image: "https://cdnpublic.budgetpetproducts.com.au/products_pictures/2023/08/29/46bd53c7-42f3-400b-9f85-398ef9a018b7.jpg"
+    <br>
 
-      },
+    <input type="text" id="mensajeContacto" placeholder="Escribe tu mensaje">
 
-      {
+    <br><br>
 
-        id: 2,
+    <button onclick="enviarMensaje()">Enviar mensaje</button>
 
-        name: "Snacks de Huesitos",
+  </section>
 
-        category: "comida",
+</main>
 
-        price: 18000,
+<footer>
 
-        description: "Premios deliciosos para consentir a tu mascota.",
+  <p>🐾 Huellitas Felices 🐾</p>
 
-        image: "https://cdn.pixabay.com/photo/2018/03/14/21/27/dog-3226266_1280.jpg"
+  <p>Cuidamos con amor a quien alegra tu corazón 💗</p>
 
-      },
+</footer>
 
-      {
+<div id="mensaje"></div>
 
-        id: 3,
+<script>
 
-        name: "Pelota Rosada para Perrita",
+const productos = [
 
-        category: "juguetes",
+{
 
-        price: 15000,
+nombre:"Concentrado para Perros",
 
-        description: "Pelota rosada ideal para jugar y divertirse.",
+precio:45000,
 
-        image: "https://aminpetshop.com/cdn/shop/products/Same_d615bbad-323a-4fb5-a0f5-0b0daf11d2e2_grande.jpg?v=1757494659"
+categoria:"comida",
 
-      },
+emoji:"🍖",
 
-      {
+descripcion:"Alimento para consentir a tu peludito."
 
-        id: 4,
+},
 
-        name: "Juguete de Cuerda Rosado",
+{
 
-        category: "juguetes",
+nombre:"Snacks de Huesitos",
 
-        price: 22000,
+precio:18000,
 
-        description: "Cuerda resistente para jugar con tu mascota.",
+categoria:"comida",
 
-        image: "https://media.s-bol.com/KymQp1G1WYlM/NkOEpPm/550x504.jpg"
+emoji:"🦴",
 
-      },
+descripcion:"Deliciosos premios para tu mascota."
 
-      {
+},
 
-        id: 5,
+{
 
-        name: "Camiseta Rosada para Perrita",
+nombre:"Pelota Rosada para Perrita",
 
-        category: "ropa",
+precio:15000,
 
-        price: 28000,
+categoria:"juguetes",
 
-        description: "Camiseta cómoda y bonita para tu mascota.",
+emoji:"🎾",
 
-        image: "https://www.thepetclosetco.com/cdn/shop/files/WhatsAppImage2026-03-19at8.20.41PM.jpg?v=1773932717&width=1280"
+descripcion:"Un juguete divertido para jugar."
 
-      },
+},
 
-      {
+{
 
-        id: 6,
+nombre:"Juguete de Cuerda Rosado",
 
-        name: "Cama Rosada para Mascota",
+precio:22000,
 
-        category: "camas",
+categoria:"juguetes",
 
-        price: 85000,
+emoji:"🪢",
 
-        description: "Cama suave y cómoda para descansar.",
+descripcion:"Ideal para jugar y entretener."
 
-        image: "https://www.richpaw.co.uk/user/products/Luxe-Pink-Velvet-Dog-Bed.jpg"
+},
 
-      },
+{
 
-      {
+nombre:"Camiseta Rosada para Perrita",
 
-        id: 7,
+precio:28000,
 
-        name: "Collar Rosado para Perro",
+categoria:"ropa",
 
-        category: "accesorios",
+emoji:"👕",
 
-        price: 30000,
+descripcion:"Ropita cómoda y bonita."
 
-        description: "Collar bonito y cómodo para pasear.",
+},
 
-        image: "https://www.tobiadogstudio.com/cdn/shop/files/COLLAREROSA.png?v=1736867338"
+{
 
-      },
+nombre:"Cama Rosada para Mascota",
 
-      {
+precio:85000,
 
-        id: 8,
+categoria:"camas",
 
-        name: "Correa Rosada para Perro",
+emoji:"🛏️",
 
-        category: "accesorios",
+descripcion:"Un lugar cómodo para descansar."
 
-        price: 35000,
+},
 
-        description: "Correa para llevar a tu mascota de paseo.",
+{
 
-        image: "https://www.personalisedog.com/21319-large_default/correa-para-perro-de-piel-rosa-bebe.jpg"
+nombre:"Collar Rosado para Perro",
 
-      },
+precio:30000,
 
-      {
+categoria:"accesorios",
 
-        id: 9,
+emoji:"🎀",
 
-        name: "Arnés Rojo para Perro",
+descripcion:"Bonito collar para tu mascota."
 
-        category: "accesorios",
+},
 
-        price: 45000,
+{
 
-        description: "Arnés cómodo y ajustable para salir a pasear.",
+nombre:"Correa Rosada para Perro",
 
-        image: "https://doodlebone.co.uk/cdn/shop/files/RVGiT9f7UsiEf9xGp5BKtU34Pd1g3m8T8ioV6thN.jpg?v=1726770611&width=1000"
+precio:35000,
 
-      },
+categoria:"accesorios",
 
-      {
+emoji:"🩷",
 
-        id: 10,
+descripcion:"Para salir a pasear con seguridad."
 
-        name: "Comedero Rosado",
+},
 
-        category: "accesorios",
+{
 
-        price: 25000,
+nombre:"Arnés Rojo para Perro",
 
-        description: "Comedero práctico para la comida de tu mascota.",
+precio:45000,
 
-        image: "https://media.s-bol.com/q5Q5B0LG4pBk/xMwmwn/550x407.jpg"
+categoria:"accesorios",
 
-      }
+emoji:"❤️",
 
-    ];
+descripcion:"Cómodo para los paseos."
 
-    let cart = [];
+},
 
-    function formatPrice(price) {
+{
 
-      return "$" + price.toLocaleString("es-CO");
+nombre:"Comedero Rosado",
 
-    }
+precio:25000,
 
-    function renderProducts() {
+categoria:"accesorios",
 
-      const list = document.getElementById("product-list");
+emoji:"🥣",
 
-      const search =
+descripcion:"Comedero práctico y bonito."
 
-        document.getElementById("search").value.toLowerCase();
+}
 
-      const category =
+];
 
-        document.getElementById("category").value;
+let carrito=0;
 
-      const filtered = products.filter(product => {
+function imagenProducto(emoji){
 
-        const matchesSearch =
+return `
 
-          product.name.toLowerCase().includes(search);
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
 
-        const matchesCategory =
+<circle cx="100" cy="100" r="82" fill="#ffd1e2"/>
 
-          category === "todos" ||
+<circle cx="100" cy="105" r="48" fill="#ffffff"/>
 
-          product.category === category;
+<circle cx="72" cy="75" r="22" fill="#ffffff"/>
 
-        return matchesSearch && matchesCategory;
+<circle cx="128" cy="75" r="22" fill="#ffffff"/>
 
-      });
+<circle cx="78" cy="100" r="6" fill="#333"/>
 
-      list.innerHTML = "";
+<circle cx="122" cy="100" r="6" fill="#333"/>
 
-      if (filtered.length === 0) {
+<ellipse cx="100" cy="120" rx="13" ry="10" fill="#333"/>
 
-        list.innerHTML =
+<text x="100" y="177"
 
-          "<p style='text-align:center;grid-column:1/-1;'>No encontramos ese producto 🐾</p>";
+text-anchor="middle"
 
-        return;
+font-size="30">${emoji}</text>
 
-      }
+</svg>
 
-      filtered.forEach(product => {
+`;
 
-        list.innerHTML += `
+}
 
-          <div class="product">
+function mostrarProductos(){
 
-            <img
+const lista=document.getElementById("listaProductos");
 
-              src="${product.image}"
+const texto=document.getElementById("buscar").value.toLowerCase();
 
-              alt="${product.name}"
+const categoria=document.getElementById("categoria").value;
 
-              onerror="this.src='https://via.placeholder.com/500x400?text=Huellitas+Felices'"
+lista.innerHTML="";
 
-            >
+const filtrados=productos.filter(producto=>{
 
-            <div class="product-info">
+const coincideNombre=producto.nombre.toLowerCase().includes(texto);
 
-              <h3>${product.name}</h3>
+const coincideCategoria=
 
-              <p>${product.description}</p>
+categoria==="todos" ||
 
-              <div class="price">
+producto.categoria===categoria;
 
-                ${formatPrice(product.price)}
+return coincideNombre && coincideCategoria;
 
-              </div>
+});
 
-              <button
+if(filtrados.length===0){
 
-                class="add-btn"
+lista.innerHTML="<p style='text-align:center;grid-column:1/-1;'>No encontramos ese producto 🐾</p>";
 
-                onclick="addToCart(${product.id})"
+return;
 
-              >
+}
 
-                🛒 Agregar al carrito
+filtrados.forEach(producto=>{
 
-              </button>
+lista.innerHTML+=`
 
-            </div>
+<div class="card">
 
-          </div>
+<div class="product-image">
 
-        `;
+${imagenProducto(producto.emoji)}
 
-      });
+</div>
 
-    }
+<h3>${producto.nombre}</h3>
 
-    function addToCart(id) {
+<p>${producto.descripcion}</p>
 
-      const product = products.find(p => p.id === id);
+<span class="price">
 
-      const existing = cart.find(item => item.id === id);
+$${producto.precio.toLocaleString("es-CO")}
 
-      if (existing) {
+</span>
 
-        existing.quantity++;
+<button onclick="agregarCarrito()">
 
-      } else {
+Agregar al carrito 🛒
 
-        cart.push({
+</button>
 
-          ...product,
+</div>
 
-          quantity: 1
+`;
 
-        });
+});
 
-      }
+}
 
-      updateCart();
+function agregarCarrito(){
 
-      alert(product.name + " fue agregado al carrito 🐾");
+carrito++;
 
-    }
+document.getElementById("contador").textContent=carrito;
 
-    function updateCart() {
+mostrarMensaje("Producto agregado al carrito 🛒");
 
-      const container =
+}
 
-        document.getElementById("cart-items");
+function mostrarMensaje(texto){
 
-      const count =
+const mensaje=document.getElementById("mensaje");
 
-        document.getElementById("cart-count");
+mensaje.textContent=texto;
 
-      const totalElement =
+mensaje.style.display="block";
 
-        document.getElementById("cart-total");
+setTimeout(()=>{
 
-      let totalItems = 0;
+mensaje.style.display="none";
 
-      let totalPrice = 0;
+},2000);
 
-      container.innerHTML = "";
+}
 
-      if (cart.length === 0) {
+function enviarMensaje(){
 
-        container.innerHTML =
+const nombre=document.getElementById("nombre").value;
 
-          "<div class='empty'>Tu carrito está vacío 🐶💗</div>";
+if(nombre.trim()===""){
 
-      }
+mostrarMensaje("Escribe tu nombre primero 💗");
 
-      cart.forEach(item => {
+return;
 
-        totalItems += item.quantity;
+}
 
-        totalPrice += item.price * item.quantity;
+mostrarMensaje("¡Mensaje enviado! Gracias por contactarnos 🐾");
 
-        container.innerHTML += `
+}
 
-          <div class="cart-item">
+mostrarProductos();
 
-            <img
-
-              src="${item.image}"
-
-              alt="${item.name}"
-
-            >
-
-            <div class="cart-item-info">
-
-              <h4>${item.name}</h4>
-
-              <span>${formatPrice(item.price)}</span>
-
-              <div class="quantity">
-
-                <button onclick="changeQuantity(${item.id}, -1)">
-
-                  -
-
-                </button>
-
-                <span>${item.quantity}</span>
-
-                <button onclick="changeQuantity(${item.id}, 1)">
-
-                  +
-
-                </button>
-
-              </div>
-
-            </div>
-
-            <button
-
-              class="delete-btn"
-
-              onclick="removeFromCart(${item.id})"
-
-            >
-
-              🗑️
-
-            </button>
-
-          </div>
-
-        `;
-
-      });
-
-      count.textContent = totalItems;
-
-      totalElement.textContent =
-
-        formatPrice(totalPrice);
-
-    }
-
-    function changeQuantity(id, amount) {
-
-      const item = cart.find(item => item.id === id);
-
-      if (!item) return;
-
-      item.quantity += amount;
-
-      if (item.quantity <= 0) {
-
-        cart = cart.filter(item => item.id !== id);
-
-      }
-
-      updateCart();
-
-    }
-
-    function removeFromCart(id) {
-
-      cart = cart.filter(item => item.id !== id);
-
-      updateCart();
-
-    }
-
-    function toggleCart() {
-
-      document
-
-        .getElementById("cart")
-
-        .classList.toggle("active");
-
-    }
-
-    function openCheckout() {
-
-      if (cart.length === 0) {
-
-        alert("Primero agrega un producto al carrito 🐾");
-
-        return;
-
-      }
-
-      document
-
-        .getElementById("checkout-modal")
-
-        .classList.add("active");
-
-    }
-
-    function closeCheckout() {
-
-      document
-
-        .getElementById("checkout-modal")
-
-        .classList.remove("active");
-
-    }
-
-    function finishPurchase() {
-
-      const name =
-
-        document.getElementById("customer-name").value.trim();
-
-      const address =
-
-        document.getElementById("customer-address").value.trim();
-
-      const phone =
-
-        document.getElementById("customer-phone").value.trim();
-
-      const payment =
-
-        document.getElementById("payment-method").value;
-
-      if (!name || !address || !phone || !payment) {
-
-        alert("Por favor completa todos los datos 🐾");
-
-        return;
-
-      }
-
-      alert(
-
-        "¡Compra realizada con éxito! 🐾💗\n\n" +
-
-        "Gracias por comprar en Huellitas Felices, " +
-
-        name + ".\n\n" +
-
-        "Esta fue una simulación de compra para el proyecto."
-
-      );
-
-      cart = [];
-
-      updateCart();
-
-      closeCheckout();
-
-      toggleCart();
-
-      document.getElementById("customer-name").value = "";
-
-      document.getElementById("customer-address").value = "";
-
-      document.getElementById("customer-phone").value = "";
-
-      document.getElementById("payment-method").value = "";
-
-    }
-
-    function sendMessage(event) {
-
-      event.preventDefault();
-
-      const name =
-
-        document.getElementById("contact-name").value;
-
-      alert(
-
-        "¡Gracias, " +
-
-        name +
-
-        "! 🐾💗 Tu mensaje fue enviado correctamente."
-
-      );
-
-      event.target.reset();
-
-    }
-
-    renderProducts();
-
-   
+</script>
