@@ -1,505 +1,450 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Huellitas Felices</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huellitas Felices</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      scroll-behavior: smooth;
+    }
 
-<style>
+    body {
+      background: #fff;
+      color: #444;
+      padding-bottom: 120px;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-scroll-behavior:smooth;
-}
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      padding: 15px 5%;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
 
-body{
-background:#fff;
-color:#444;
-padding-bottom:120px;
-}
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff85a2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-/* HEADER */
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #709fb0;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-header{
-position:fixed;
-top:0;
-width:100%;
-background:white;
-padding:15px 5%;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-z-index:1000;
-}
+    .cart-btn-header {
+      background: #ff85a2;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
+    /* HERO */
+    .hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, #a0c4ff, #ffc6ff);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
 
-.logo{
-font-size:1.5rem;
-font-weight:bold;
-color:#ff7eb3;
-}
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
 
-.menu{
-display:flex;
-list-style:none;
-gap:15px;
-}
+    .hero p {
+      font-size: 16px;
+    }
 
-.menu a{
-text-decoration:none;
-color:#6ea8fe;
-font-weight:bold;
-font-size:0.9rem;
-}
+    /* CATALOGO */
+    .catalog {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
 
-.cart{
-background:#ff7eb3;
-padding:8px 15px;
-border-radius:30px;
-color:white;
-font-weight:bold;
-font-size:0.9rem;
-}
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
 
-/* HERO */
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-.hero{
-height:70vh;
-background:
-linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)),
-url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80');
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-margin-top:60px;
-}
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
 
-.hero-content{
-background:rgba(255,255,255,0.9);
-padding:30px 20px;
-border-radius:25px;
-max-width:500px;
-}
+    .card-body {
+      padding: 20px;
+      text-align: center;
+    }
 
-.hero h1{
-font-size:2.5rem;
-color:#ff7eb3;
-margin-bottom:15px;
-}
+    .card-title {
+      font-size: 18px;
+      color: #709fb0;
+      margin-bottom: 8px;
+    }
 
-.hero p{
-font-size:1rem;
-margin-bottom:20px;
-}
+    .card-desc {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 15px;
+      min-height: 36px;
+    }
 
-.btn{
-background:#6ea8fe;
-padding:12px 30px;
-color:white;
-text-decoration:none;
-border-radius:40px;
-font-weight:bold;
-display:inline-block;
-transition:0.3s;
-}
+    .card-price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff85a2;
+      margin-bottom: 15px;
+    }
 
-.btn:hover{
-background:#ff7eb3;
-}
+    .btn-add {
+      background: #ff85a2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      width: 100%;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
 
-/* SECCIONES */
+    .btn-add:hover {
+      background: #f76c8e;
+    }
 
-section{
-padding:50px 5%;
-}
+    /* CARRITO INFERIOR */
+    .cart-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+      border-radius: 20px 20px 0 0;
+      padding: 20px;
+      z-index: 999;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
 
-.title{
-text-align:center;
-margin-bottom:30px;
-}
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
 
-.title h2{
-font-size:2rem;
-color:#ff7eb3;
-}
+    .cart-header h3 {
+      color: #ff85a2;
+    }
 
-/* CATEGORIAS */
+    .cart-items {
+      margin-bottom: 15px;
+    }
 
-.categories{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:30px;
-}
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
 
-.category-btn{
-padding:10px 18px;
-border:none;
-background:#dbe9ff;
-border-radius:25px;
-cursor:pointer;
-font-size:0.9rem;
-font-weight:bold;
-transition:0.3s;
-}
+    .cart-item-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.category-btn:hover, .category-btn.active{
-background:#ff7eb3;
-color:white;
-}
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
 
-/* PRODUCTOS */
+    .cart-item-qty button {
+      background: #e2eafc;
+      border: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      color: #709fb0;
+    }
 
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+    .cart-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
 
-.card{
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-transition:0.3s;
-border:1px solid #f0f0f0;
-}
+    .total-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #709fb0;
+    }
 
-.card:hover{
-transform:translateY(-5px);
-}
+    /* FORMULARIO CONTACTO */
+    .contact-section {
+      max-width: 600px;
+      margin: 50px auto 20px;
+      padding: 20px;
+      background: #f8edeb;
+      border-radius: 15px;
+      text-align: center;
+    }
 
-.card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
+    .contact-section h2 {
+      color: #ff85a2;
+      margin-bottom: 15px;
+    }
 
-.card-content{
-padding:20px;
-text-align:center;
-}
+    .contact-section input, .contact-section textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
 
-.card-content h3{
-color:#6ea8fe;
-font-size:1.1rem;
-margin-bottom:8px;
-}
+    .contact-section button {
+      background: #709fb0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-.card-content p{
-font-size:0.85rem;
-color:#666;
-}
-
-.price{
-font-size:1.3rem;
-font-weight:bold;
-color:#ff7eb3;
-margin:10px 0;
-}
-
-.buy-btn{
-background:#ff7eb3;
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:25px;
-cursor:pointer;
-font-weight:bold;
-transition:0.3s;
-width:100%;
-}
-
-.buy-btn:hover{
-background:#6ea8fe;
-}
-
-/* CARRITO VISUAL DESPLEGABLE */
-
-.cart-box{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:white;
-padding:15px 20px;
-border-radius:20px 20px 0 0;
-box-shadow:0 -5px 20px rgba(0,0,0,0.15);
-max-height:220px;
-overflow-y:auto;
-z-index:999;
-border-top:3px solid #ff7eb3;
-}
-
-.cart-box h3{
-color:#ff7eb3;
-margin-bottom:10px;
-font-size:1.1rem;
-}
-
-.cart-item{
-margin-bottom:6px;
-padding-bottom:6px;
-border-bottom:1px solid #eee;
-font-size:0.85rem;
-display:flex;
-justify-content:space-between;
-}
-
-.total{
-margin-top:10px;
-font-weight:bold;
-color:#6ea8fe;
-font-size:1rem;
-text-align:right;
-}
-
-/* CONTACTO */
-
-.contact{
-background:linear-gradient(135deg,#ffd6e8,#dbe9ff);
-padding:40px 20px;
-border-radius:25px;
-text-align:center;
-}
-
-.contact h2{
-color:#6ea8fe;
-margin-bottom:15px;
-}
-
-.contact p{
-margin:5px 0;
-font-size:0.9rem;
-}
-
-/* FOOTER */
-
-footer{
-background:#6ea8fe;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:30px;
-}
-
-</style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 12px;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<nav>
-<div class="logo">🐾 Huellitas Felices</div>
-<ul class="menu">
-<li><a href="#inicio">Inicio</a></li>
-<li><a href="#productos">Productos</a></li>
-<li><a href="#contacto">Contacto</a></li>
-</ul>
-<div class="cart">
-🛒 <span id="cart-count">0</span>
-</div>
-</nav>
-</header>
+  <header>
+    <div class="logo">🐾 Huellitas Felices</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="cart-btn-header" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
+  </header>
 
-<!-- HERO -->
+  <section id="inicio" class="hero">
+    <h1>¡Todo para tu Peludito!</h1>
+    <p>Encuentra los mejores accesorios, juguetes y alimento con envío a domicilio.</p>
+  </section>
 
-<section class="hero" id="inicio">
-<div class="hero-content">
-<h1>Huellitas Felices</h1>
-<p>Todo para consentir a tus mascotas favoritas 🐶🐱</p>
-<a href="#productos" class="btn">Ver Productos</a>
-</div>
-</section>
+  <section id="productos" class="catalog" id="product-list"></section>
 
-<!-- PRODUCTOS -->
+  <section id="contacto" class="contact-section">
+    <h2>Contacto</h2>
+    <form onsubmit="event.preventDefault(); alert('¡Mensaje enviado con éxito!');">
+      <input type="text" placeholder="Tu Nombre" required>
+      <input type="email" placeholder="Tu Correo" required>
+      <textarea rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+      <button type="submit">Enviar Mensaje</button>
+    </form>
+  </section>
 
-<section id="productos">
-<div class="title">
-<h2>Nuestros Productos</h2>
-</div>
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h3>🛒 Mi Carrito</h3>
+      <span style="font-size: 12px; color: #888;">(Haz clic en 🛒 arriba para ocultar/mostrar)</span>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <p style="text-align: center; color: #aaa; font-size: 14px;">El carrito está vacío</p>
+    </div>
+    <div class="cart-footer">
+      <div class="total-price">Total: $<span id="cart-total">0</span></div>
+      <button class="btn-add" style="width: auto;" onclick="checkout()">Finalizar Compra</button>
+    </div>
+  </div>
 
-<!-- CATEGORIAS -->
+  <footer>
+    &copy; 2026 Huellitas Felices - Proyecto Académico
+  </footer>
 
-<div class="categories">
-<button class="category-btn active" onclick="filterProducts(event, 'all')">Todos</button>
-<button class="category-btn" onclick="filterProducts(event, 'comida')">🍖 Comida</button>
-<button class="category-btn" onclick="filterProducts(event, 'juguetes')">🧸 Juguetes</button>
-<button class="category-btn" onclick="filterProducts(event, 'ropa')">👕 Ropita</button>
-<button class="category-btn" onclick="filterProducts(event, 'camas')">🛏️ Camas</button>
-</div>
+  <script>
+    const products = [
+      {
+        id: 1,
+        title: "Cuerda Morder Canina",
+        desc: "Ideal para la salud dental y limpiar sus dientes.",
+        price: 22000,
+        image: "https://images.unsplash.com/photo-1608408891486-ebb2376f272a?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 2,
+        title: "Comedero Antivoracidad",
+        desc: "Ayuda a mejorar la digestión comiendo más despacio.",
+        price: 35000,
+        image: "https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 3,
+        title: "Cama Suave Ergonómica",
+        desc: "Máximo confort para el descanso de tu perro o gato.",
+        price: 85000,
+        image: "https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 4,
+        title: "Arnés Reflectivo Ajustable",
+        desc: "Seguridad y comodidad para los paseos nocturnos.",
+        price: 45000,
+        image: "https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 5,
+        title: "Rascador para Gatos",
+        desc: "Protege tus muebles con este poste rascador resistente.",
+        price: 60000,
+        image: "https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 6,
+        title: "Snacks Naturales (100g)",
+        desc: "Deliciosos premios saludables ricos en proteína.",
+        price: 18000,
+        image: "https://images.unsplash.com/photo-1582798358481-d199fb7347bb?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
 
-<!-- LISTA DE PRODUCTOS ORGANIZADOS -->
+    let cart = [];
 
-<div class="products">
+    function renderProducts() {
+      const container = document.getElementById('product-list');
+      container.innerHTML = products.map(p => `
+        <div class="card">
+          <img src="${p.image}" alt="${p.title}">
+          <div class="card-body">
+            <div class="card-title">${p.title}</div>
+            <div class="card-desc">${p.desc}</div>
+            <div class="card-price">$${p.price.toLocaleString('es-CO')}</div>
+            <button class="btn-add" onclick="addToCart(${p.id})">🛒 Agregar</button>
+          </div>
+        </div>
+      `).join('');
+    }
 
-<!-- COMIDA -->
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      const item = cart.find(item => item.id === id);
+      if (item) {
+        item.qty++;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+      updateCart();
+    }
 
-<div class="card comida">
-<img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=600&q=80" alt="Comida para Perro">
-<div class="card-content">
-<h3>Comida Premium Perro</h3>
-<p>Alimento balanceado y nutritivo para perros.</p>
-<div class="price">$45.000</div>
-<button class="buy-btn" onclick="addToCart('Comida Premium Perro',45000)">🛒 Agregar</button>
-</div>
-</div>
+    function changeQty(id, delta) {
+      const item = cart.find(item => item.id === id);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) {
+          cart = cart.filter(i => i.id !== id);
+        }
+      }
+      updateCart();
+    }
 
-<div class="card comida">
-<img src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=600&q=80" alt="Comida para Gato">
-<div class="card-content">
-<h3>Comida Gatuna Gourmet</h3>
-<p>Croquetas para la salud y brillo del pelaje.</p>
-<div class="price">$40.000</div>
-<button class="buy-btn" onclick="addToCart('Comida Gatuna Gourmet',40000)">🛒 Agregar</button>
-</div>
-</div>
+    function updateCart() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
 
-<!-- JUGUETES -->
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-<div class="card juguetes">
-<img src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=600&q=80" alt="Pelota para Perro">
-<div class="card-content">
-<h3>Pelota Divertida</h3>
-<p>Resistente y duradera para jugar al aire libre.</p>
-<div class="price">$18.000</div>
-<button class="buy-btn" onclick="addToCart('Pelota Divertida',18000)">🛒 Agregar</button>
-</div>
-</div>
+      cartCount.innerText = totalCount;
+      cartTotal.innerText = totalPrice.toLocaleString('es-CO');
 
-<div class="card juguetes">
-<img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=600&q=80" alt="Juguete Cuerda">
-<div class="card-content">
-<h3>Cuerda Morder Canina</h3>
-<p>Ideal para la salud dental y limpiar sus dientes.</p>
-<div class="price">$22.000</div>
-<button class="buy-btn" onclick="addToCart('Cuerda Morder Canina',22000)">🛒 Agregar</button>
-</div>
-</div>
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p style="text-align: center; color: #aaa; font-size: 14px;">El carrito está vacío</p>';
+      } else {
+        cartItemsContainer.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <strong>${item.title}</strong>
+              <span style="color:#888;">($${item.price.toLocaleString('es-CO')})</span>
+            </div>
+            <div class="cart-item-qty">
+              <button onclick="changeQty(${item.id}, -1)">-</button>
+              <span>${item.qty}</span>
+              <button onclick="changeQty(${item.id}, 1)">+</button>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
 
-<!-- ROPA -->
+    function checkout() {
+      if (cart.length === 0) {
+        alert("El carrito está vacío.");
+        return;
+      }
+      alert("¡Gracias por tu compra! Tu pedido ha sido registrado.");
+      cart = [];
+      updateCart();
+    }
 
-<div class="card ropa">
-<img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Ropa para Perro">
-<div class="card-content">
-<h3>Saco Térmico Mascotas</h3>
-<p>Diseño cómodo y calientito para clima frío.</p>
-<div class="price">$35.000</div>
-<button class="buy-btn" onclick="addToCart('Saco Térmico Mascotas',35000)">🛒 Agregar</button>
-</div>
-</div>
+    function toggleCart() {
+      const drawer = document.querySelector('.cart-drawer');
+      drawer.style.display = drawer.style.display === 'none' ? 'block' : 'none';
+    }
 
-<div class="card ropa">
-<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80" alt="Pañoleta Mascota">
-<div class="card-content">
-<h3>Pañoleta Elegante</h3>
-<p>Accesorio de moda para lucir en los paseos.</p>
-<div class="price">$15.000</div>
-<button class="buy-btn" onclick="addToCart('Pañoleta Elegante',15000)">🛒 Agregar</button>
-</div>
-</div>
-
-<!-- CAMAS -->
-
-<div class="card camas">
-<img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=600&q=80" alt="Cama Mascotas">
-<div class="card-content">
-<h3>Cama Deluxe Acolchada</h3>
-<p>Máximo confort y suavidad para un buen descanso.</p>
-<div class="price">$80.000</div>
-<button class="buy-btn" onclick="addToCart('Cama Deluxe Acolchada',80000)">🛒 Agregar</button>
-</div>
-</div>
-
-<div class="card camas">
-<img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=600&q=80" alt="Cama Gato">
-<div class="card-content">
-<h3>Cojín Suave Gatuno</h3>
-<p>Espacio afelpado para que duerman plácidamente.</p>
-<div class="price">$60.000</div>
-<button class="buy-btn" onclick="addToCart('Cojín Suave Gatuno',60000)">🛒 Agregar</button>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACTO -->
-
-<section id="contacto">
-<div class="contact">
-<h2>Contáctanos</h2>
-<p>📍 Calle Principal #123</p>
-<p>📞 +57 300 000 0000</p>
-<p>📧 contacto@huellitasfelices.com</p>
-</div>
-</section>
-
-<!-- CARRITO VISUAL ABAJO -->
-
-<div class="cart-box">
-<h3>🛒 Mi Carrito</h3>
-<div id="cart-items"></div>
-<div class="total">Total: $<span id="cart-total">0</span></div>
-</div>
-
-<!-- FOOTER -->
-
-<footer>
-<p>© 2026 Huellitas Felices</p>
-</footer>
-
-<!-- JAVASCRIPT -->
-
-<script>
-let cart = [];
-let total = 0;
-
-function addToCart(product, price){
-cart.push({product, price});
-total += price;
-document.getElementById("cart-count").innerText = cart.length;
-document.getElementById("cart-total").innerText = total.toLocaleString();
-
-const cartItems = document.getElementById("cart-items");
-const item = document.createElement("div");
-item.classList.add("cart-item");
-item.innerHTML = `<span>${product}</span> <b>$${price.toLocaleString()}</b>`;
-cartItems.appendChild(item);
-}
-
-function filterProducts(event, category){
-const cards = document.querySelectorAll(".card");
-const buttons = document.querySelectorAll(".category-btn");
-
-buttons.forEach(btn => btn.classList.remove("active"));
-event.target.classList.add("active");
-
-cards.forEach(card => {
-if(category === "all"){
-card.style.display = "block";
-}else{
-if(card.classList.contains(category)){
-card.style.display = "block";
-}else{
-card.style.display = "none";
-}
-}
-});
-}
-</script>
-
+    renderProducts();
+  </script>
 </body>
 </html>
