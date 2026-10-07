@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="es">
 
@@ -14,315 +14,261 @@
 
 *{
 
-  box-sizing:border-box;
+    box-sizing:border-box;
 
-  margin:0;
+    margin:0;
 
-  padding:0;
+    padding:0;
 
-  font-family:Arial,sans-serif;
+    font-family:Arial, sans-serif;
 
 }
 
 body{
 
-  background:#fff7fb;
+    background:#fff5fa;
 
-  color:#333;
+    color:#5a3d4b;
 
 }
 
 header{
 
-  background:#f48fb1;
+    background:#f7a8c4;
 
-  color:white;
+    padding:20px;
 
-  padding:18px 25px;
+    text-align:center;
 
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  position:sticky;
-
-  top:0;
-
-  z-index:10;
+    color:white;
 
 }
 
-.logo{
+header h1{
 
-  font-size:24px;
-
-  font-weight:bold;
+    font-size:32px;
 
 }
 
-nav a{
+header p{
 
-  color:white;
-
-  text-decoration:none;
-
-  margin:0 8px;
-
-  font-weight:bold;
+    margin-top:8px;
 
 }
 
-.cart{
+.carrito{
 
-  background:white;
+    margin-top:12px;
 
-  color:#e85d91;
+    background:white;
 
-  padding:8px 12px;
+    color:#d95b8a;
 
-  border-radius:20px;
+    display:inline-block;
 
-  font-weight:bold;
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    font-weight:bold;
 
 }
 
 .hero{
 
-  text-align:center;
+    text-align:center;
 
-  padding:45px 20px;
+    padding:35px 20px;
 
-  background:#ffd6e7;
+    background:#ffe1ec;
 
 }
 
-.hero h1{
+.hero h2{
 
-  color:#d94f83;
+    color:#d95b8a;
 
-  font-size:38px;
-
-  margin-bottom:10px;
+    margin-bottom:10px;
 
 }
 
 .hero p{
 
-  font-size:18px;
+    margin-bottom:20px;
 
 }
 
-.container{
+input{
 
-  max-width:1100px;
+    width:90%;
 
-  margin:auto;
+    max-width:500px;
 
-  padding:30px 20px;
+    padding:12px;
 
-}
+    border:2px solid #f7a8c4;
 
-h2{
+    border-radius:20px;
 
-  text-align:center;
-
-  color:#d94f83;
-
-  margin-bottom:25px;
-
-}
-
-.filters{
-
-  display:flex;
-
-  gap:10px;
-
-  justify-content:center;
-
-  flex-wrap:wrap;
-
-  margin-bottom:30px;
-
-}
-
-input,select{
-
-  padding:12px;
-
-  border:2px solid #f3b5cb;
-
-  border-radius:10px;
-
-  outline:none;
+    outline:none;
 
 }
 
 .products{
 
-  display:grid;
+    display:grid;
 
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
-  gap:22px;
+    gap:20px;
+
+    padding:30px;
+
+    max-width:1200px;
+
+    margin:auto;
 
 }
 
-.card{
+.product{
 
-  background:white;
+    background:white;
 
-  border-radius:18px;
+    border-radius:18px;
 
-  overflow:hidden;
+    padding:15px;
 
-  box-shadow:0 3px 12px rgba(0,0,0,.12);
+    text-align:center;
 
-  text-align:center;
-
-  padding-bottom:18px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
 
 }
 
 .product-image{
 
-  width:100%;
+    width:100%;
 
-  height:190px;
+    height:180px;
 
-  background:#ffe5ef;
+    display:flex;
 
-  display:flex;
+    align-items:center;
 
-  align-items:center;
+    justify-content:center;
 
-  justify-content:center;
+    overflow:hidden;
 
-}
+    border-radius:15px;
 
-.product-image svg{
+    background:#fff0f6;
 
-  width:150px;
-
-  height:150px;
+    margin-bottom:12px;
 
 }
 
-.card h3{
+.product-image img{
 
-  color:#d94f83;
+    width:100%;
 
-  margin:15px 8px 8px;
+    height:100%;
+
+    object-fit:contain;
 
 }
 
-.card p{
+.product h3{
 
-  color:#666;
+    color:#d95b8a;
 
-  min-height:40px;
+    margin-bottom:8px;
 
-  padding:0 10px;
+}
+
+.product p{
+
+    font-size:14px;
+
+    margin-bottom:10px;
 
 }
 
 .price{
 
-  display:block;
+    font-size:20px;
 
-  color:#222;
+    font-weight:bold;
 
-  font-size:20px;
+    color:#7b4b61;
 
-  font-weight:bold;
-
-  margin:12px;
+    margin-bottom:12px;
 
 }
 
 button{
 
-  border:none;
+    border:none;
 
-  background:#e85d91;
+    background:#f08bb0;
 
-  color:white;
+    color:white;
 
-  padding:11px 18px;
+    padding:10px 18px;
 
-  border-radius:20px;
+    border-radius:20px;
 
-  cursor:pointer;
+    cursor:pointer;
 
-  font-weight:bold;
+    font-weight:bold;
 
 }
 
 button:hover{
 
-  background:#d94f83;
+    background:#d95b8a;
+
+}
+
+.mensaje{
+
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    background:#d95b8a;
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:20px;
+
+    display:none;
 
 }
 
 .contacto{
 
-  margin-top:40px;
+    background:#ffe1ec;
 
-  background:#ffe5ef;
+    text-align:center;
 
-  padding:30px;
+    padding:30px;
 
-  border-radius:20px;
-
-  text-align:center;
-
-}
-
-.contacto input{
-
-  width:90%;
-
-  max-width:500px;
-
-  margin:6px;
+    margin-top:20px;
 
 }
 
 footer{
 
-  margin-top:40px;
+    background:#f7a8c4;
 
-  background:#d94f83;
+    color:white;
 
-  color:white;
+    text-align:center;
 
-  text-align:center;
-
-  padding:25px;
-
-}
-
-#mensaje{
-
-  position:fixed;
-
-  bottom:20px;
-
-  right:20px;
-
-  background:#d94f83;
-
-  color:white;
-
-  padding:12px 18px;
-
-  border-radius:20px;
-
-  display:none;
-
-  z-index:20;
+    padding:18px;
 
 }
 
@@ -334,397 +280,296 @@ footer{
 
 <header>
 
-  <div class="logo">🐾 Huellitas Felices</div>
+    <h1>🐾 Huellitas Felices 🐾</h1>
 
-  <nav>
+    <p>Cuidamos con amor a quien alegra tu corazón 💗</p>
 
-    <a href="#inicio">Inicio</a>
+    <div class="carrito">
 
-    <a href="#productos">Productos</a>
+        🛒 Carrito: <span id="contador">0</span>
 
-    <a href="#contacto">Contacto</a>
+        &nbsp; | &nbsp;
 
-  </nav>
+        Total: $<span id="total">0</span>
 
-  <div class="cart">
-
-    🛒 Carrito: <span id="contador">0</span>
-
-  </div>
+    </div>
 
 </header>
 
-<section class="hero" id="inicio">
+<section class="hero">
 
-  <h1>¡Todo para tu Peludito! 🐶</h1>
+    <h2>Todo para consentir a tu mascota 🐶</h2>
 
-  <p>Productos para consentir y cuidar a nuestros mejores amigos.</p>
-
-</section>
-
-<main class="container" id="productos">
-
-  <h2>🐾 Nuestros productos 🐾</h2>
-
-  <div class="filters">
+    <p>Encuentra comida, juguetes y accesorios para tu mejor amigo.</p>
 
     <input
 
-      type="text"
+        type="text"
 
-      id="buscar"
+        id="buscador"
 
-      placeholder="Buscar producto..."
+        placeholder="🔎 Buscar producto..."
 
-      oninput="mostrarProductos()"
+        onkeyup="buscarProductos()"
 
     >
 
-    <select id="categoria" onchange="mostrarProductos()">
+</section>
 
-      <option value="todos">Todos</option>
+<section class="products" id="productos"></section>
 
-      <option value="comida">Comida</option>
-
-      <option value="juguetes">Juguetes</option>
-
-      <option value="ropa">Ropa</option>
-
-      <option value="camas">Camas</option>
-
-      <option value="accesorios">Accesorios</option>
-
-    </select>
-
-  </div>
-
-  <div class="products" id="listaProductos"></div>
-
-  <section class="contacto" id="contacto">
+<section class="contacto">
 
     <h2>💗 Contáctanos</h2>
 
-    <p>¿Tienes alguna pregunta? Escríbenos.</p>
+    <p>📱 WhatsApp: 300 000 0000</p>
 
-    <br>
+    <p>📧 Correo: huellitasfelices@gmail.com</p>
 
-    <input type="text" id="nombre" placeholder="Tu nombre">
+    <p>📍 Colombia</p>
 
-    <br>
-
-    <input type="email" id="correo" placeholder="Tu correo">
-
-    <br>
-
-    <input type="text" id="mensajeContacto" placeholder="Escribe tu mensaje">
-
-    <br><br>
-
-    <button onclick="enviarMensaje()">Enviar mensaje</button>
-
-  </section>
-
-</main>
+</section>
 
 <footer>
 
-  <p>🐾 Huellitas Felices 🐾</p>
+    <p>🐾 Huellitas Felices © 2026</p>
 
-  <p>Cuidamos con amor a quien alegra tu corazón 💗</p>
+    <p>Cuidamos con amor a quien alegra tu corazón 💕</p>
 
 </footer>
 
-<div id="mensaje"></div>
+<div class="mensaje" id="mensaje"></div>
 
 <script>
+
+let carrito = 0;
+
+let total = 0;
 
 const productos = [
 
 {
 
-nombre:"Concentrado para Perros",
+    nombre:"Comida para perros",
 
-precio:45000,
+    descripcion:"Alimento completo y nutritivo para tu perro.",
 
-categoria:"comida",
+    precio:45000,
 
-emoji:"🍖",
-
-descripcion:"Alimento para consentir a tu peludito."
+    imagen:"https://a.fsimg.co.nz/product/retail/fan/image/master/5289693.png"
 
 },
 
 {
 
-nombre:"Snacks de Huesitos",
+    nombre:"Premios para perros",
 
-precio:18000,
+    descripcion:"Deliciosos premios para consentir a tu mascota.",
 
-categoria:"comida",
+    precio:18000,
 
-emoji:"🦴",
-
-descripcion:"Deliciosos premios para tu mascota."
+    imagen:"https://dm.apac.cms.aldi.cx/is/image/aldiprodapac/product/jpg/scaleWidth/1296/3fbad45e-c3e0-481f-ae12-1e85827d7ca9/Dog%20Treat%20Baked%20Bones%20800g"
 
 },
 
 {
 
-nombre:"Pelota Rosada para Perrita",
+    nombre:"Pelota rosada",
 
-precio:15000,
+    descripcion:"Juguete divertido para jugar y pasar un buen rato.",
 
-categoria:"juguetes",
+    precio:15000,
 
-emoji:"🎾",
-
-descripcion:"Un juguete divertido para jugar."
+    imagen:"https://aminpetshop.com/cdn/shop/products/Same_d615bbad-323a-4fb5-a0f5-0b0daf11d2e2_grande.jpg?v=1757494659"
 
 },
 
 {
 
-nombre:"Juguete de Cuerda Rosado",
+    nombre:"Juguete de cuerda",
 
-precio:22000,
+    descripcion:"Perfecto para jugar y mantener entretenida a tu mascota.",
 
-categoria:"juguetes",
+    precio:12000,
 
-emoji:"🪢",
-
-descripcion:"Ideal para jugar y entretener."
+    imagen:"https://www.screampet.com.au/productimages/92-SDT03688.jpg"
 
 },
 
 {
 
-nombre:"Camiseta Rosada para Perrita",
+    nombre:"Camisa rosada",
 
-precio:28000,
+    descripcion:"Ropita cómoda y bonita para tu mascota.",
 
-categoria:"ropa",
+    precio:28000,
 
-emoji:"👕",
-
-descripcion:"Ropita cómoda y bonita."
+    imagen:"https://www.thepetclosetco.com/cdn/shop/files/WhatsAppImage2026-03-19at8.20.41PM.jpg?v=1773932717&width=1280"
 
 },
 
 {
 
-nombre:"Cama Rosada para Mascota",
+    nombre:"Cama rosada",
 
-precio:85000,
+    descripcion:"Una cama cómoda para que tu mascota descanse.",
 
-categoria:"camas",
+    precio:65000,
 
-emoji:"🛏️",
-
-descripcion:"Un lugar cómodo para descansar."
+    imagen:"https://www.richpaw.co.uk/user/products/Luxe-Pink-Velvet-Dog-Bed.jpg"
 
 },
 
 {
 
-nombre:"Collar Rosado para Perro",
+    nombre:"Collar rosado",
 
-precio:30000,
+    descripcion:"Collar bonito y cómodo para pasear a tu mascota.",
 
-categoria:"accesorios",
+    precio:22000,
 
-emoji:"🎀",
-
-descripcion:"Bonito collar para tu mascota."
+    imagen:"https://cdn.shopify.com/s/files/1/0071/8946/3091/products/pink-dog-collar.jpg?v=1634782102&width=940"
 
 },
 
 {
 
-nombre:"Correa Rosada para Perro",
+    nombre:"Correa rosada",
 
-precio:35000,
+    descripcion:"Correa resistente para salir a caminar.",
 
-categoria:"accesorios",
+    precio:30000,
 
-emoji:"🩷",
-
-descripcion:"Para salir a pasear con seguridad."
+    imagen:"https://www.cocoandpud.com.au/cdn/shop/files/Coco_PudLuxePupStep-inDogLeadLeash-BlossomPink.png?v=1762900001&width=1080"
 
 },
 
 {
 
-nombre:"Arnés Rojo para Perro",
+    nombre:"Arnés rojo",
 
-precio:45000,
+    descripcion:"Arnés cómodo y seguro para pasear.",
 
-categoria:"accesorios",
+    precio:35000,
 
-emoji:"❤️",
-
-descripcion:"Cómodo para los paseos."
+    imagen:"https://www.trixie.es/WebRoot/StoreWeb/Shops/Trixie/5CFB/87F1/9070/1DB7/9F81/0A02/5E24/PHO_PRO_CLIP_ComfortSoft-16243-16283-1.jpg"
 
 },
 
 {
 
-nombre:"Comedero Rosado",
+    nombre:"Plato rosado",
 
-precio:25000,
+    descripcion:"Plato práctico para la comida y el agua.",
 
-categoria:"accesorios",
+    precio:20000,
 
-emoji:"🥣",
-
-descripcion:"Comedero práctico y bonito."
+    imagen:"https://www.elperroingles.com/cdn/shop/products/PLATOROSAPERROINGLES.jpg?v=1658196411&width=1946"
 
 }
 
 ];
 
-let carrito=0;
+function mostrarProductos(lista = productos){
 
-function imagenProducto(emoji){
+    const contenedor = document.getElementById("productos");
 
-return `
+    contenedor.innerHTML = "";
 
-<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    lista.forEach(producto => {
 
-<circle cx="100" cy="100" r="82" fill="#ffd1e2"/>
+        contenedor.innerHTML += `
 
-<circle cx="100" cy="105" r="48" fill="#ffffff"/>
+        <div class="product">
 
-<circle cx="72" cy="75" r="22" fill="#ffffff"/>
+            <div class="product-image">
 
-<circle cx="128" cy="75" r="22" fill="#ffffff"/>
+                <img
 
-<circle cx="78" cy="100" r="6" fill="#333"/>
+                    src="${producto.imagen}"
 
-<circle cx="122" cy="100" r="6" fill="#333"/>
+                    alt="${producto.nombre}"
 
-<ellipse cx="100" cy="120" rx="13" ry="10" fill="#333"/>
+                >
 
-<text x="100" y="177"
+            </div>
 
-text-anchor="middle"
+            <h3>${producto.nombre}</h3>
 
-font-size="30">${emoji}</text>
+            <p>${producto.descripcion}</p>
 
-</svg>
+            <div class="price">
 
-`;
+                $${producto.precio.toLocaleString("es-CO")}
 
-}
+            </div>
 
-function mostrarProductos(){
+            <button onclick="agregarCarrito(${producto.precio})">
 
-const lista=document.getElementById("listaProductos");
+                🛒 Agregar al carrito
 
-const texto=document.getElementById("buscar").value.toLowerCase();
+            </button>
 
-const categoria=document.getElementById("categoria").value;
+        </div>
 
-lista.innerHTML="";
+        `;
 
-const filtrados=productos.filter(producto=>{
-
-const coincideNombre=producto.nombre.toLowerCase().includes(texto);
-
-const coincideCategoria=
-
-categoria==="todos" ||
-
-producto.categoria===categoria;
-
-return coincideNombre && coincideCategoria;
-
-});
-
-if(filtrados.length===0){
-
-lista.innerHTML="<p style='text-align:center;grid-column:1/-1;'>No encontramos ese producto 🐾</p>";
-
-return;
+    });
 
 }
 
-filtrados.forEach(producto=>{
+function agregarCarrito(precio){
 
-lista.innerHTML+=`
+    carrito++;
 
-<div class="card">
+    total += precio;
 
-<div class="product-image">
+    document.getElementById("contador").textContent = carrito;
 
-${imagenProducto(producto.emoji)}
+    document.getElementById("total").textContent =
 
-</div>
+        total.toLocaleString("es-CO");
 
-<h3>${producto.nombre}</h3>
-
-<p>${producto.descripcion}</p>
-
-<span class="price">
-
-$${producto.precio.toLocaleString("es-CO")}
-
-</span>
-
-<button onclick="agregarCarrito()">
-
-Agregar al carrito 🛒
-
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-function agregarCarrito(){
-
-carrito++;
-
-document.getElementById("contador").textContent=carrito;
-
-mostrarMensaje("Producto agregado al carrito 🛒");
+    mostrarMensaje("Producto agregado al carrito 🛒");
 
 }
 
 function mostrarMensaje(texto){
 
-const mensaje=document.getElementById("mensaje");
+    const mensaje = document.getElementById("mensaje");
 
-mensaje.textContent=texto;
+    mensaje.textContent = texto;
 
-mensaje.style.display="block";
+    mensaje.style.display = "block";
 
-setTimeout(()=>{
+    setTimeout(() => {
 
-mensaje.style.display="none";
+        mensaje.style.display = "none";
 
-},2000);
-
-}
-
-function enviarMensaje(){
-
-const nombre=document.getElementById("nombre").value;
-
-if(nombre.trim()===""){
-
-mostrarMensaje("Escribe tu nombre primero 💗");
-
-return;
+    }, 1800);
 
 }
 
-mostrarMensaje("¡Mensaje enviado! Gracias por contactarnos 🐾");
+function buscarProductos(){
+
+    const texto =
+
+        document.getElementById("buscador").value.toLowerCase();
+
+    const resultados = productos.filter(producto =>
+
+        producto.nombre.toLowerCase().includes(texto)
+
+    );
+
+    mostrarProductos(resultados);
 
 }
 
 mostrarProductos();
 
+</script>
+
+</body>
+
+</html>
