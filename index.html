@@ -18,6 +18,7 @@ scroll-behavior:smooth;
 body{
 background:#fff;
 color:#444;
+padding-bottom:120px;
 }
 
 /* HEADER */
@@ -27,7 +28,7 @@ position:fixed;
 top:0;
 width:100%;
 background:white;
-padding:15px 8%;
+padding:15px 5%;
 box-shadow:0 3px 10px rgba(0,0,0,0.08);
 z-index:1000;
 }
@@ -40,7 +41,7 @@ flex-wrap:wrap;
 }
 
 .logo{
-font-size:2rem;
+font-size:1.5rem;
 font-weight:bold;
 color:#ff7eb3;
 }
@@ -48,30 +49,32 @@ color:#ff7eb3;
 .menu{
 display:flex;
 list-style:none;
-gap:20px;
+gap:15px;
 }
 
 .menu a{
 text-decoration:none;
 color:#6ea8fe;
 font-weight:bold;
+font-size:0.9rem;
 }
 
 .cart{
 background:#ff7eb3;
-padding:10px 20px;
+padding:8px 15px;
 border-radius:30px;
 color:white;
 font-weight:bold;
+font-size:0.9rem;
 }
 
 /* HERO */
 
 .hero{
-height:100vh;
+height:70vh;
 background:
 linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)),
-url('https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg');
+url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80');
 background-size:cover;
 background-position:center;
 display:flex;
@@ -79,29 +82,30 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
+margin-top:60px;
 }
 
 .hero-content{
-background:rgba(255,255,255,0.8);
-padding:50px;
-border-radius:30px;
-max-width:700px;
+background:rgba(255,255,255,0.9);
+padding:30px 20px;
+border-radius:25px;
+max-width:500px;
 }
 
 .hero h1{
-font-size:4rem;
+font-size:2.5rem;
 color:#ff7eb3;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .hero p{
-font-size:1.2rem;
-margin-bottom:30px;
+font-size:1rem;
+margin-bottom:20px;
 }
 
 .btn{
 background:#6ea8fe;
-padding:15px 35px;
+padding:12px 30px;
 color:white;
 text-decoration:none;
 border-radius:40px;
@@ -117,16 +121,16 @@ background:#ff7eb3;
 /* SECCIONES */
 
 section{
-padding:100px 8%;
+padding:50px 5%;
 }
 
 .title{
 text-align:center;
-margin-bottom:50px;
+margin-bottom:30px;
 }
 
 .title h2{
-font-size:2.8rem;
+font-size:2rem;
 color:#ff7eb3;
 }
 
@@ -135,18 +139,18 @@ color:#ff7eb3;
 .categories{
 display:flex;
 justify-content:center;
-gap:20px;
+gap:10px;
 flex-wrap:wrap;
-margin-bottom:50px;
+margin-bottom:30px;
 }
 
 .category-btn{
-padding:15px 25px;
+padding:10px 18px;
 border:none;
 background:#dbe9ff;
-border-radius:30px;
+border-radius:25px;
 cursor:pointer;
-font-size:1rem;
+font-size:0.9rem;
 font-weight:bold;
 transition:0.3s;
 }
@@ -160,105 +164,125 @@ color:white;
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .card{
 background:white;
-border-radius:25px;
+border-radius:20px;
 overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
 transition:0.3s;
+border:1px solid #f0f0f0;
 }
 
 .card:hover{
-transform:translateY(-10px);
+transform:translateY(-5px);
 }
 
 .card img{
 width:100%;
-height:260px;
+height:200px;
 object-fit:cover;
 }
 
 .card-content{
-padding:25px;
+padding:20px;
 text-align:center;
 }
 
 .card-content h3{
 color:#6ea8fe;
-margin-bottom:10px;
+font-size:1.1rem;
+margin-bottom:8px;
+}
+
+.card-content p{
+font-size:0.85rem;
+color:#666;
 }
 
 .price{
-font-size:1.5rem;
+font-size:1.3rem;
 font-weight:bold;
 color:#ff7eb3;
-margin:15px 0;
+margin:10px 0;
 }
 
 .buy-btn{
 background:#ff7eb3;
 color:white;
 border:none;
-padding:12px 25px;
-border-radius:30px;
+padding:10px 20px;
+border-radius:25px;
 cursor:pointer;
 font-weight:bold;
 transition:0.3s;
+width:100%;
 }
 
 .buy-btn:hover{
 background:#6ea8fe;
 }
 
-/* CARRITO VISUAL */
+/* CARRITO VISUAL DESPLEGABLE */
 
 .cart-box{
 position:fixed;
-right:20px;
-bottom:20px;
+bottom:0;
+left:0;
+right:0;
 background:white;
-padding:20px;
-border-radius:20px;
-width:300px;
-box-shadow:0 5px 20px rgba(0,0,0,0.15);
-max-height:400px;
-overflow:auto;
+padding:15px 20px;
+border-radius:20px 20px 0 0;
+box-shadow:0 -5px 20px rgba(0,0,0,0.15);
+max-height:220px;
+overflow-y:auto;
 z-index:999;
+border-top:3px solid #ff7eb3;
 }
 
 .cart-box h3{
 color:#ff7eb3;
-margin-bottom:15px;
+margin-bottom:10px;
+font-size:1.1rem;
 }
 
 .cart-item{
-margin-bottom:10px;
-padding-bottom:10px;
+margin-bottom:6px;
+padding-bottom:6px;
 border-bottom:1px solid #eee;
+font-size:0.85rem;
+display:flex;
+justify-content:space-between;
 }
 
 .total{
-margin-top:15px;
+margin-top:10px;
 font-weight:bold;
 color:#6ea8fe;
+font-size:1rem;
+text-align:right;
 }
 
 /* CONTACTO */
 
 .contact{
 background:linear-gradient(135deg,#ffd6e8,#dbe9ff);
-padding:60px;
-border-radius:30px;
+padding:40px 20px;
+border-radius:25px;
 text-align:center;
 }
 
 .contact h2{
 color:#6ea8fe;
-margin-bottom:20px;
+margin-bottom:15px;
+}
+
+.contact p{
+margin:5px 0;
+font-size:0.9rem;
 }
 
 /* FOOTER */
@@ -267,21 +291,8 @@ footer{
 background:#6ea8fe;
 color:white;
 text-align:center;
-padding:20px;
-margin-top:50px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-.hero h1{
-font-size:2.5rem;
-}
-
-.cart-box{
-width:90%;
-right:5%;
-}
+padding:15px;
+margin-top:30px;
 }
 
 </style>
@@ -323,11 +334,11 @@ right:5%;
 <!-- CATEGORIAS -->
 
 <div class="categories">
-<button class="category-btn active" onclick="filterProducts('all')">Todos</button>
-<button class="category-btn" onclick="filterProducts('comida')">🍖 Comida</button>
-<button class="category-btn" onclick="filterProducts('juguetes')">🧸 Juguetes</button>
-<button class="category-btn" onclick="filterProducts('ropa')">👕 Ropita</button>
-<button class="category-btn" onclick="filterProducts('camas')">🛏️ Camas</button>
+<button class="category-btn active" onclick="filterProducts(event, 'all')">Todos</button>
+<button class="category-btn" onclick="filterProducts(event, 'comida')">🍖 Comida</button>
+<button class="category-btn" onclick="filterProducts(event, 'juguetes')">🧸 Juguetes</button>
+<button class="category-btn" onclick="filterProducts(event, 'ropa')">👕 Ropita</button>
+<button class="category-btn" onclick="filterProducts(event, 'camas')">🛏️ Camas</button>
 </div>
 
 <!-- LISTA DE PRODUCTOS ORGANIZADOS -->
@@ -337,20 +348,20 @@ right:5%;
 <!-- COMIDA -->
 
 <div class="card comida">
-<img src="https://images.pexels.com/photos/4587991/pexels-photo-4587991.jpeg" alt="Comida Premium Perro">
+<img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=600&q=80" alt="Comida para Perro">
 <div class="card-content">
 <h3>Comida Premium Perro</h3>
-<p>Croquetas nutritivas y balanceadas para perros adultas.</p>
+<p>Alimento balanceado y nutritivo para perros.</p>
 <div class="price">$45.000</div>
 <button class="buy-btn" onclick="addToCart('Comida Premium Perro',45000)">🛒 Agregar</button>
 </div>
 </div>
 
 <div class="card comida">
-<img src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" alt="Comida Gatuna Gourmet">
+<img src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=600&q=80" alt="Comida para Gato">
 <div class="card-content">
 <h3>Comida Gatuna Gourmet</h3>
-<p>Alimento completo para salud y brillo del pelaje en gatos.</p>
+<p>Croquetas para la salud y brillo del pelaje.</p>
 <div class="price">$40.000</div>
 <button class="buy-btn" onclick="addToCart('Comida Gatuna Gourmet',40000)">🛒 Agregar</button>
 </div>
@@ -359,66 +370,66 @@ right:5%;
 <!-- JUGUETES -->
 
 <div class="card juguetes">
-<img src="https://images.pexels.com/photos/5731866/pexels-photo-5731866.jpeg" alt="Pelota Divertida">
+<img src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=600&q=80" alt="Pelota para Perro">
 <div class="card-content">
 <h3>Pelota Divertida</h3>
-<p>Resistente y duradera, ideal para jugar al aire libre.</p>
+<p>Resistente y duradera para jugar al aire libre.</p>
 <div class="price">$18.000</div>
 <button class="buy-btn" onclick="addToCart('Pelota Divertida',18000)">🛒 Agregar</button>
 </div>
 </div>
 
 <div class="card juguetes">
-<img src="https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg" alt="Huesito de Goma">
+<img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=600&q=80" alt="Juguete Cuerda">
 <div class="card-content">
-<h3>Huesito de Goma</h3>
-<p>Perfecto para la salud dental, morder y entretenerse.</p>
+<h3>Cuerda Morder Canina</h3>
+<p>Ideal para la salud dental y limpiar sus dientes.</p>
 <div class="price">$22.000</div>
-<button class="buy-btn" onclick="addToCart('Huesito de Goma',22000)">🛒 Agregar</button>
+<button class="buy-btn" onclick="addToCart('Cuerda Morder Canina',22000)">🛒 Agregar</button>
 </div>
 </div>
 
 <!-- ROPA -->
 
 <div class="card ropa">
-<img src="https://images.pexels.com/photos/6568501/pexels-photo-6568501.jpeg" alt="Ropita Rosa">
+<img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Ropa para Perro">
 <div class="card-content">
-<h3>Saco Algodón Rosa</h3>
+<h3>Saco Térmico Mascotas</h3>
 <p>Diseño cómodo y calientito para clima frío.</p>
 <div class="price">$35.000</div>
-<button class="buy-btn" onclick="addToCart('Saco Algodón Rosa',35000)">🛒 Agregar</button>
+<button class="buy-btn" onclick="addToCart('Saco Térmico Mascotas',35000)">🛒 Agregar</button>
 </div>
 </div>
 
 <div class="card ropa">
-<img src="https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg" alt="Chaqueta Impermeable">
+<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80" alt="Pañoleta Mascota">
 <div class="card-content">
-<h3>Chaqueta Impermeable</h3>
-<p>Protege a tu mascota de la lluvia durante los paseos.</p>
-<div class="price">$48.000</div>
-<button class="buy-btn" onclick="addToCart('Chaqueta Impermeable',48000)">🛒 Agregar</button>
+<h3>Pañoleta Elegante</h3>
+<p>Accesorio de moda para lucir en los paseos.</p>
+<div class="price">$15.000</div>
+<button class="buy-btn" onclick="addToCart('Pañoleta Elegante',15000)">🛒 Agregar</button>
 </div>
 </div>
 
 <!-- CAMAS -->
 
 <div class="card camas">
-<img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg" alt="Cama Deluxe">
+<img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=600&q=80" alt="Cama Mascotas">
 <div class="card-content">
 <h3>Cama Deluxe Acolchada</h3>
-<p>Máximo confort y suavidad para un descanso profundo.</p>
+<p>Máximo confort y suavidad para un buen descanso.</p>
 <div class="price">$80.000</div>
 <button class="buy-btn" onclick="addToCart('Cama Deluxe Acolchada',80000)">🛒 Agregar</button>
 </div>
 </div>
 
 <div class="card camas">
-<img src="https://images.pexels.com/photos/731022/pexels-photo-731022.jpeg" alt="Cojín Cueva para Gatos">
+<img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=600&q=80" alt="Cama Gato">
 <div class="card-content">
-<h3>Cueva Térmica Mascotas</h3>
-<p>Espacio privado y abrigado para gatitos o cachorros.</p>
-<div class="price">$65.000</div>
-<button class="buy-btn" onclick="addToCart('Cueva Térmica Mascotas',65000)">🛒 Agregar</button>
+<h3>Cojín Suave Gatuno</h3>
+<p>Espacio afelpado para que duerman plácidamente.</p>
+<div class="price">$60.000</div>
+<button class="buy-btn" onclick="addToCart('Cojín Suave Gatuno',60000)">🛒 Agregar</button>
 </div>
 </div>
 
@@ -436,10 +447,10 @@ right:5%;
 </div>
 </section>
 
-<!-- CARRITO VISUAL -->
+<!-- CARRITO VISUAL ABAJO -->
 
 <div class="cart-box">
-<h3>🛒 Carrito</h3>
+<h3>🛒 Mi Carrito</h3>
 <div id="cart-items"></div>
 <div class="total">Total: $<span id="cart-total">0</span></div>
 </div>
@@ -450,7 +461,7 @@ right:5%;
 <p>© 2026 Huellitas Felices</p>
 </footer>
 
-<!-- JAVASCRIPT DE FILTRADO Y CARRITO -->
+<!-- JAVASCRIPT -->
 
 <script>
 let cart = [];
@@ -465,11 +476,11 @@ document.getElementById("cart-total").innerText = total.toLocaleString();
 const cartItems = document.getElementById("cart-items");
 const item = document.createElement("div");
 item.classList.add("cart-item");
-item.innerHTML = `${product} - $${price.toLocaleString()}`;
+item.innerHTML = `<span>${product}</span> <b>$${price.toLocaleString()}</b>`;
 cartItems.appendChild(item);
 }
 
-function filterProducts(category){
+function filterProducts(event, category){
 const cards = document.querySelectorAll(".card");
 const buttons = document.querySelectorAll(".category-btn");
 
